@@ -1,6 +1,6 @@
 package com.epam.labs.study.testing.lesson180115;
 
-import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -16,10 +16,17 @@ public class FactorialTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {-2,-3,-4})
+    @ValueSource(ints = {-2, -3, -4})
     void exceptionTestFact(int k) {
-        Executable executable = ()->Factorial.fact(k);
-        assertThrows(IllegalArgumentException.class, executable, "a message");
+        assertThrows(IllegalArgumentException.class, () -> Factorial.fact(k), "a message");
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 1, 1})
+    @Disabled
+    void disabledTestFact(int k) {
+        assertEquals(12, 21);
+    }
+
 
 }
