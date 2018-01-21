@@ -2,8 +2,11 @@ package com.epam.labs.study.testing.lesson180116;
 
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 class RangeTest {
     private Range rMin10_100 = new Range(-10, 100);
@@ -48,14 +51,14 @@ class RangeTest {
     }
 
     @Test
-    void contains() {
+    void containsTest() {
         assertEquals(true, rMin10_100.contains(5));
         assertEquals(false, rMin10_100.contains(5000));
     }
 
     @Test
-    void asList() {
-
+    void asListTest() {
+        assertThat(r1_2.asList(), contains(1L, 2L));
     }
 
     @Test
